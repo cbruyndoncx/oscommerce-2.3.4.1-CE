@@ -23,9 +23,9 @@
 		<table class="table table-bordered table-striped table-hover">
 				<thead>
 					<tr class="dataTableHeadingRow">
-						<td class="dataTableHeadingContent"><?php echo TABLE_HEADING_NUMBER; ?></td>
-						<td class="dataTableHeadingContent"><?php echo TABLE_HEADING_PRODUCTS; ?></td>
-						<td class="dataTableHeadingContent" align="center"><?php echo TABLE_HEADING_PURCHASED; ?>&nbsp;</td>
+						<th class="dataTableHeadingContent"><?php echo TABLE_HEADING_NUMBER; ?></th>
+						<th class="dataTableHeadingContent"><?php echo TABLE_HEADING_PRODUCTS; ?></th>
+						<th class="dataTableHeadingContent" align="center"><?php echo TABLE_HEADING_PURCHASED; ?>&nbsp;</th>
 					</tr>
 				</thead>
 <?php
