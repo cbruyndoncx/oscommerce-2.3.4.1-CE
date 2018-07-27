@@ -310,7 +310,12 @@
 <?php
     echo $OSCOM_Hooks->call('orders', 'orderTab');
 ?>
-
+<script>
+$('#orderTabs a').click(function (e) {
+  e.preventDefault();
+  $(this).tab('show');
+});
+</script>
 
 <?php
   } else {

@@ -80,3 +80,39 @@
 	echo $adminAppMenu;
   }
 ?>
+<script>
+	//Set the root
+	$rootPath = '<?php echo DIR_WS_ADMIN; ?>';
+	
+	//Keep state of collapse menu via localStorage
+	var adminCollapseAppMenu = localStorage.getItem('adminCollapseAppMenu');
+	if (!adminCollapseAppMenu) {
+		adminCollapseAppMenu = [];
+		localStorage.setItem('adminCollapseAppMenu', JSON.stringify(adminCollapseAppMenu));
+	} else {
+		adminCollapseAppMenuArray = JSON.parse(adminCollapseAppMenu);
+		var arrayLength = adminCollapseAppMenuArray.length;
+			for (var i = 0; i < arrayLength; i++) {
+				var panel = '#'+adminCollapseAppMenuArray[i];
+				$(panel).addClass('show');
+			}
+	}
+	$('#adminAppMenu').on('shown.bs.collapse', '.card-collapse', function() {
+		adminCollapseAppMenu = JSON.parse(localStorage.getItem('adminCollapseAppMenu'));
+		if ($.inArray($(this).attr('id'), adminCollapseAppMenu) == -1) {
+			adminCollapseAppMenu.push($(this).attr('id'));
+		};
+		localStorage.setItem('adminCollapseAppMenu', JSON.stringify(adminCollapseAppMenu));
+	});
+	$('#adminAppMenu').on('hidden.bs.collapse', '.card-collapse', function() {
+        adminCollapseAppMenu = JSON.parse(localStorage.getItem('adminCollapseAppMenu'));
+		adminCollapseAppMenu.splice( $.inArray($(this).attr('id'), adminCollapseAppMenu), 1 ); 
+		localStorage.setItem('adminCollapseAppMenu', JSON.stringify(adminCollapseAppMenu));
+	});	
+	if ( window.location.pathname == $rootPath || window.location.pathname == $rootPath+'index.php'){ 
+		//Close panels if navigate to index
+		adminCollapseAppMenu = [];
+		localStorage.setItem('adminCollapseAppMenu', JSON.stringify(adminCollapseAppMenu));
+		$('#adminAppMenu .card-collapse').removeClass('show');
+	}	
+</script>
