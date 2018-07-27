@@ -38,15 +38,17 @@
       $rss->cache_time = 86400;
       $feed = $rss->get('http://feeds.feedburner.com/osCommerceNewsAndBlogs');
 
-      $output = '<table border="0" width="100%" cellspacing="0" cellpadding="4">' .
-                '  <tr class="dataTableHeadingRow">' .
-                '    <td class="dataTableHeadingContent">' . MODULE_ADMIN_DASHBOARD_LATEST_NEWS_TITLE . '</td>' .
-                '    <td class="dataTableHeadingContent" align="right">' . MODULE_ADMIN_DASHBOARD_LATEST_NEWS_DATE . '</td>' .
-                '  </tr>';
+      $output = '<table class="table table-bordered table-striped table-hover">' .
+                '   <thead>' .
+                '       <tr class="dataTableHeadingRow">' .
+                '           <th class="dataTableHeadingContent">' . MODULE_ADMIN_DASHBOARD_LATEST_NEWS_TITLE . '</th>' .
+                '           <th class="dataTableHeadingContent" align="right">' . MODULE_ADMIN_DASHBOARD_LATEST_NEWS_DATE . '</th>' .
+                '       </tr>' . 
+                '   </thead>';
 
       if (is_array($feed) && !empty($feed)) {
         foreach ($feed['items'] as $item) {
-          $output .= '  <tr class="dataTableRow" onmouseover="rowOverEffect(this);" onmouseout="rowOutEffect(this);">' .
+          $output .= '  <tr class="dataTableRow">' .
                      '    <td class="dataTableContent"><a href="' . $item['link'] . '" target="_blank">' . $item['title'] . '</a></td>' .
                      '    <td class="dataTableContent" align="right" style="white-space: nowrap;">' . date("F j, Y", strtotime($item['pubDate'])) . '</td>' .
                      '  </tr>';

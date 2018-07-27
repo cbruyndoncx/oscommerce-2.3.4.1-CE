@@ -28,15 +28,17 @@
     }
 
     function getOutput() {
-      $output = '<table border="0" width="100%" cellspacing="0" cellpadding="4">' .
-                '  <tr class="dataTableHeadingRow">' .
-                '    <td class="dataTableHeadingContent">' . MODULE_ADMIN_DASHBOARD_CUSTOMERS_TITLE . '</td>' .
-                '    <td class="dataTableHeadingContent" align="right">' . MODULE_ADMIN_DASHBOARD_CUSTOMERS_DATE . '</td>' .
-                '  </tr>';
+      $output = '<table class="table table-bordered table-striped table-hover">' .
+                '   <thead>' .
+                '       <tr class="dataTableHeadingRow">' .
+                '           <th class="dataTableHeadingContent">' . MODULE_ADMIN_DASHBOARD_CUSTOMERS_TITLE . '</th>' .
+                '           <th class="dataTableHeadingContent" align="right">' . MODULE_ADMIN_DASHBOARD_CUSTOMERS_DATE . '</th>' .
+                '       </tr>' . 
+                '   </thead>';
 
       $customers_query = tep_db_query("select c.customers_id, c.customers_lastname, c.customers_firstname, ci.customers_info_date_account_created from " . TABLE_CUSTOMERS . " c, " . TABLE_CUSTOMERS_INFO . " ci where c.customers_id = ci.customers_info_id order by ci.customers_info_date_account_created desc limit 6");
       while ($customers = tep_db_fetch_array($customers_query)) {
-        $output .= '  <tr class="dataTableRow" onmouseover="rowOverEffect(this);" onmouseout="rowOutEffect(this);">' .
+        $output .= '  <tr class="dataTableRow">' .
                    '    <td class="dataTableContent"><a href="' . tep_href_link('customers.php', 'cID=' . (int)$customers['customers_id'] . '&action=edit') . '">' . tep_output_string_protected($customers['customers_firstname'] . ' ' . $customers['customers_lastname']) . '</a></td>' .
                    '    <td class="dataTableContent" align="right">' . tep_date_short($customers['customers_info_date_account_created']) . '</td>' .
                    '  </tr>';

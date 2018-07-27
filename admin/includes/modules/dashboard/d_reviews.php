@@ -30,19 +30,21 @@
     function getOutput() {
       global $languages_id;
 
-      $output = '<table border="0" width="100%" cellspacing="0" cellpadding="4">' .
-                '  <tr class="dataTableHeadingRow">' .
-                '    <td class="dataTableHeadingContent">' . MODULE_ADMIN_DASHBOARD_REVIEWS_TITLE . '</td>' .
-                '    <td class="dataTableHeadingContent">' . MODULE_ADMIN_DASHBOARD_REVIEWS_DATE . '</td>' .
-                '    <td class="dataTableHeadingContent">' . MODULE_ADMIN_DASHBOARD_REVIEWS_REVIEWER . '</td>' .
-                '    <td class="dataTableHeadingContent">' . MODULE_ADMIN_DASHBOARD_REVIEWS_RATING . '</td>' .
-                '    <td class="dataTableHeadingContent">' . MODULE_ADMIN_DASHBOARD_REVIEWS_REVIEW_STATUS . '</td>' .
-                '  </tr>';
+      $output = '<table class="table table-bordered table-striped table-hover">' .
+                '   <thead>' .
+                '       <tr class="dataTableHeadingRow">' .
+                '           <th class="dataTableHeadingContent">' . MODULE_ADMIN_DASHBOARD_REVIEWS_TITLE . '</th>' .
+                '           <th class="dataTableHeadingContent">' . MODULE_ADMIN_DASHBOARD_REVIEWS_DATE . '</th>' .
+                '           <th class="dataTableHeadingContent">' . MODULE_ADMIN_DASHBOARD_REVIEWS_REVIEWER . '</th>' .
+                '           <th class="dataTableHeadingContent">' . MODULE_ADMIN_DASHBOARD_REVIEWS_RATING . '</th>' .
+                '           <th class="dataTableHeadingContent">' . MODULE_ADMIN_DASHBOARD_REVIEWS_REVIEW_STATUS . '</th>' .
+                '       </tr>' . 
+                '   </thead>';
 
       $reviews_query = tep_db_query("select r.reviews_id, r.date_added, pd.products_name, r.customers_name, r.reviews_rating, r.reviews_status from " . TABLE_REVIEWS . " r, " . TABLE_PRODUCTS_DESCRIPTION . " pd where pd.products_id = r.products_id and pd.language_id = '" . (int)$languages_id . "' order by r.date_added desc limit 6");
       while ($reviews = tep_db_fetch_array($reviews_query)) {
         $status_icon = ($reviews['reviews_status'] == '1') ? tep_image('images/icon_status_green.gif', IMAGE_ICON_STATUS_GREEN, 10, 10) : tep_image('images/icon_status_red.gif', IMAGE_ICON_STATUS_RED, 10, 10);
-        $output .= '  <tr class="dataTableRow" onmouseover="rowOverEffect(this);" onmouseout="rowOutEffect(this);">' .
+        $output .= '  <tr class="dataTableRow">' .
                    '    <td class="dataTableContent"><a href="' . tep_href_link('reviews.php', 'rID=' . (int)$reviews['reviews_id'] . '&action=edit') . '">' . $reviews['products_name'] . '</a></td>' .
                    '    <td class="dataTableContent">' . tep_date_short($reviews['date_added']) . '</td>' .
                    '    <td class="dataTableContent">' . tep_output_string_protected($reviews['customers_name']) . '</td>' .

@@ -39,13 +39,15 @@
       $output = null;
 
       if (is_array($result) && !empty($result)) {
-        $output = '<table border="0" width="100%" cellspacing="0" cellpadding="4">' .
-                  '  <tr class="dataTableHeadingRow">' .
-                  '    <td class="dataTableHeadingContent">' . MODULE_ADMIN_DASHBOARD_PARTNER_NEWS_TITLE . '</td>' .
-                  '  </tr>';
+      $output = '<table class="table table-bordered table-striped table-hover">' .
+                '   <thead>' .
+                '       <tr class="dataTableHeadingRow">' .
+                '           <th class="dataTableHeadingContent">' . MODULE_ADMIN_DASHBOARD_PARTNER_NEWS_TITLE . '</th>' .
+                '       </tr>' . 
+                '   </thead>';
 
         foreach ($result as $p) {
-          $output .= '  <tr class="dataTableRow" onmouseover="rowOverEffect(this);" onmouseout="rowOutEffect(this);">' .
+          $output .= '  <tr class="dataTableRow">' .
                      '    <td class="dataTableContent"><a href="' . $p['url'] . '" target="_blank"><strong>' . $p['title'] . '</strong></a> (' . $p['category_title'] . ')<br />' . $p['status_update'] . '</td>' .
                      '  </tr>';
         }

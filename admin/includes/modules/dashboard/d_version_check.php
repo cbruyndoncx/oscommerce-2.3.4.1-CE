@@ -49,19 +49,21 @@
         $date_last_checked = MODULE_ADMIN_DASHBOARD_VERSION_CHECK_NEVER;
       }
 
-      $output = '<table border="0" width="100%" cellspacing="0" cellpadding="4">' .
-                '  <tr class="dataTableHeadingRow">' .
-                '    <td class="dataTableHeadingContent">' . MODULE_ADMIN_DASHBOARD_VERSION_CHECK_TITLE . '</td>' .
-                '    <td class="dataTableHeadingContent" align="right">' . MODULE_ADMIN_DASHBOARD_VERSION_CHECK_DATE . '</td>' .
-                '  </tr>';
+      $output = '<table class="table table-bordered table-hover">' .
+                '   <thead>' .
+                '       <tr class="dataTableHeadingRow">' .
+                '           <th class="dataTableHeadingContent">' . MODULE_ADMIN_DASHBOARD_VERSION_CHECK_TITLE . '</th>' .
+                '           <th class="dataTableHeadingContent" align="right">' . MODULE_ADMIN_DASHBOARD_VERSION_CHECK_DATE . '</th>' .
+                '       </tr>' . 
+                '   </thead>';
 
       if ($new_version == true) {
         $output .= '  <tr>' .
-                   '    <td class="messageStackWarning" colspan="2">' . tep_image('images/icons/warning.gif', ICON_WARNING) . '&nbsp;<strong>' . MODULE_ADMIN_DASHBOARD_VERSION_CHECK_UPDATE_AVAILABLE . '</strong></td>' .
+                   '    <td colspan="2"><div class="alert alert-warning">' . tep_image('images/icons/warning.gif', ICON_WARNING) . '&nbsp;<strong>' . MODULE_ADMIN_DASHBOARD_VERSION_CHECK_UPDATE_AVAILABLE . '</strong></div></td>' .
                    '  </tr>';
       }
 
-      $output .= '  <tr class="dataTableRow" onmouseover="rowOverEffect(this);" onmouseout="rowOutEffect(this);">' .
+      $output .= '  <tr class="dataTableRow">' .
                  '    <td class="dataTableContent"><a href="' . tep_href_link('version_check.php') . '">' . MODULE_ADMIN_DASHBOARD_VERSION_CHECK_CHECK_NOW . '</a></td>' .
                  '    <td class="dataTableContent" align="right">' . $date_last_checked . '</td>' .
                  '  </tr>' .
