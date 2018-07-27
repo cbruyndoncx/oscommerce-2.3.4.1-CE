@@ -509,7 +509,7 @@ function updateNet() {
 </div>
 <div class="row">    
 	<?php echo tep_draw_form('new_product', 'categories.php', 'cPath=' . $cPath . (isset($_GET['pID']) ? '&pID=' . $_GET['pID'] : '') . '&action=' . $form_action, 'post', 'enctype="multipart/form-data"'); ?>
-	<div class="col-md-8">	    
+	<div class="col-md-12">	    
 		<table class="table table-bordered">
           <tr>
             <td class="main"><?php echo TEXT_PRODUCTS_STATUS; ?></td>
@@ -713,7 +713,7 @@ function showPiDelConfirm(piId) {
 ?>
         </table>
 		<nav>
-			<ul class="pagination pull-right"><?php echo tep_draw_hidden_field('products_date_added', (tep_not_null($pInfo->products_date_added) ? $pInfo->products_date_added : date('Y-m-d'))) . tep_draw_button(IMAGE_SAVE, 'disk', null, 'primary') . tep_draw_button(IMAGE_CANCEL, 'close', tep_href_link('categories.php', 'cPath=' . $cPath . (isset($_GET['pID']) ? '&pID=' . $_GET['pID'] : ''))); ?></ul>
+			<ul class="pagination float-right"><?php echo tep_draw_hidden_field('products_date_added', (tep_not_null($pInfo->products_date_added) ? $pInfo->products_date_added : date('Y-m-d'))) . tep_draw_button(IMAGE_SAVE, 'disk', null, 'primary') . tep_draw_button(IMAGE_CANCEL, 'close', tep_href_link('categories.php', 'cPath=' . $cPath . (isset($_GET['pID']) ? '&pID=' . $_GET['pID'] : ''))); ?></ul>
 		</nav>
 </div>
 <script type="text/javascript">
@@ -742,7 +742,7 @@ $('#products_date_available').datepicker({
       $pInfo->products_seo_title = tep_get_products_seo_title($pInfo->products_id, $languages[$i]['id']);
 ?>
 <div class="page-header">
-	<div class="pull-right"><?php echo $currencies->format($pInfo->products_price); ?></div>
+	<div class="float-right"><?php echo $currencies->format($pInfo->products_price); ?></div>
 	<h1><?php echo tep_image(tep_catalog_href_link('includes/languages/' . $languages[$i]['directory'] . '/images/' . $languages[$i]['image'], '', 'SSL'), $languages[$i]['name']) . '&nbsp;' . $pInfo->products_name; ?></h1>
 </div>
 
@@ -919,8 +919,8 @@ $('#products_date_available').datepicker({
 
 		</table>
 		<nav>
-			<ul class="pagination pull-left"><?php echo TEXT_CATEGORIES . '&nbsp;' . $categories_count . '<br />' . TEXT_PRODUCTS . '&nbsp;' . $products_count; ?></ul>
-			<ul class="pagination pull-right"><?php if (isset($cPath_array) && (sizeof($cPath_array) > 0))  echo tep_draw_button(IMAGE_BACK, 'triangle-1-w', tep_href_link('categories.php', $cPath_back . 'cID=' . $current_category_id)); if (!isset($_GET['search'])) echo tep_draw_button(IMAGE_NEW_CATEGORY, 'plus', tep_href_link('categories.php', 'cPath=' . $cPath . '&action=new_category')) . tep_draw_button(IMAGE_NEW_PRODUCT, 'plus', tep_href_link('categories.php', 'cPath=' . $cPath . '&action=new_product')); ?>&nbsp;</ul>
+			<ul class="pagination float-left"><?php echo TEXT_CATEGORIES . '&nbsp;' . $categories_count . '<br />' . TEXT_PRODUCTS . '&nbsp;' . $products_count; ?></ul>
+			<ul class="pagination float-right"><?php if (isset($cPath_array) && (sizeof($cPath_array) > 0))  echo tep_draw_button(IMAGE_BACK, 'triangle-1-w', tep_href_link('categories.php', $cPath_back . 'cID=' . $current_category_id)); if (!isset($_GET['search'])) echo tep_draw_button(IMAGE_NEW_CATEGORY, 'plus', tep_href_link('categories.php', 'cPath=' . $cPath . '&action=new_category')) . tep_draw_button(IMAGE_NEW_PRODUCT, 'plus', tep_href_link('categories.php', 'cPath=' . $cPath . '&action=new_product')); ?>&nbsp;</ul>
 		</nav>		
 	</div>
 <?php

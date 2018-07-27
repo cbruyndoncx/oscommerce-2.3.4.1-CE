@@ -138,9 +138,9 @@ function selectAll(FormName, SelectBox) {
             $confirm_string .= tep_draw_hidden_field('chosen[]', $chosen[$i]);
           }
         }
-        $confirm_string .= '  <ul class="pagination pull-right">' . tep_draw_button(IMAGE_SEND, 'mail-closed', null, 'primary') . '</ul>';
+        $confirm_string .= '  <ul class="pagination float-right">' . tep_draw_button(IMAGE_SEND, 'mail-closed', null, 'primary') . '</ul>';
       }
-      $confirm_string .= '  <ul class="pagination pull-left">' . tep_draw_button(IMAGE_CANCEL, 'close', tep_href_link('newsletters.php', 'page=' . $_GET['page'] . '&nID=' . $_GET['nID'] . '&action=send')) . '</ul>' . "\n" .
+      $confirm_string .= '  <ul class="pagination float-left">' . tep_draw_button(IMAGE_CANCEL, 'close', tep_href_link('newsletters.php', 'page=' . $_GET['page'] . '&nID=' . $_GET['nID'] . '&action=send')) . '</ul>' . "\n" .
                          '</nav>';
 
       return $confirm_string;

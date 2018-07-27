@@ -103,18 +103,14 @@
 ?>
 
 <h1 class="pageHeading"><?php echo HEADING_TITLE . ': #' . (int)$oID . ' (' . $order->info['total'] . ')'; ?></h1>
-
-<div style="text-align: right; padding-bottom: 15px;"><?php echo tep_draw_button(IMAGE_ORDERS_INVOICE, 'document', tep_href_link('invoice.php', 'oID=' . $_GET['oID']), null, array('newwindow' => true)) . tep_draw_button(IMAGE_ORDERS_PACKINGSLIP, 'document', tep_href_link('packingslip.php', 'oID=' . $_GET['oID']), null, array('newwindow' => true)) . tep_draw_button(IMAGE_BACK, 'triangle-1-w', tep_href_link('orders.php', tep_get_all_get_params(array('action')))); ?></div>
-
-<div id="orderTabs">
-  <ul class="nav nav-tabs" role="tablist">
-    <li><?php echo '<a href="' . substr(tep_href_link('orders.php', tep_get_all_get_params()), strlen($base_url)) . '#section_summary_content">' . TAB_TITLE_SUMMARY . '</a>'; ?></li>
-    <li><?php echo '<a href="' . substr(tep_href_link('orders.php', tep_get_all_get_params()), strlen($base_url)) . '#section_products_content">' . TAB_TITLE_PRODUCTS . '</a>'; ?></li>
-    <li><?php echo '<a href="' . substr(tep_href_link('orders.php', tep_get_all_get_params()), strlen($base_url)) . '#section_status_history_content">' . TAB_TITLE_STATUS_HISTORY . '</a>'; ?></li>
+  <ul class="nav nav-tabs"  id="orderTabs" role="tablist">
+    <li class="nav-item"><?php echo '<a class="nav-link active" id="section_summary_tab" data-toggle="tab" href="#section_summary_content" role="tab" aria-controls="' . TAB_TITLE_SUMMARY . '" aria-selected="true">' . TAB_TITLE_SUMMARY . '</a>'; ?></li>
+    <li class="nav-item"><?php echo '<a class="nav-link" id="section_products_tab" data-toggle="tab" href="#section_products_content" role="tab" aria-controls="' . TAB_TITLE_PRODUCTS . '" aria-selected="false">' . TAB_TITLE_PRODUCTS . '</a>'; ?></li>
+    <li class="nav-item"><?php echo '<a class="nav-link" id="section_status_history_tab" data-toggle="tab" href="#section_status_history_content" role="tab" aria-controls="' . TAB_TITLE_STATUS_HISTORY . '" aria-selected="false">' . TAB_TITLE_STATUS_HISTORY . '</a>'; ?></li>
   </ul>
   <!-- Tab panes -->
   <div class="tab-content">
-  <div role="tabpanel" class="tab-pane fade in active" id="section_summary_content">
+  <div role="tabpanel" class="tab-pane active" role="tabpanel" aria-labelledby="section_summary_tab" id="section_summary_content">
     <table class="table">
       <tr>
         <td width="33%" valign="top">
@@ -193,19 +189,19 @@
     </table>
   </div>
 
-  <div role="tabpanel" class="tab-pane fade" id="section_products_content">
-    <table class="table">
-    <thead>
-        <tr class="dataTableHeadingRow">
-            <th class="dataTableHeadingContent" colspan="2"><?php echo TABLE_HEADING_PRODUCTS; ?></th>
-            <th class="dataTableHeadingContent"><?php echo TABLE_HEADING_PRODUCTS_MODEL; ?></th>
-            <th class="dataTableHeadingContent" align="right"><?php echo TABLE_HEADING_TAX; ?></th>
-            <th class="dataTableHeadingContent" align="right"><?php echo TABLE_HEADING_PRICE_EXCLUDING_TAX; ?></th>
-            <th class="dataTableHeadingContent" align="right"><?php echo TABLE_HEADING_PRICE_INCLUDING_TAX; ?></th>
-            <th class="dataTableHeadingContent" align="right"><?php echo TABLE_HEADING_TOTAL_EXCLUDING_TAX; ?></th>
-            <th class="dataTableHeadingContent" align="right"><?php echo TABLE_HEADING_TOTAL_INCLUDING_TAX; ?></th>
-        </tr>
-    </thead>
+    <div role="tabpanel" class="tab-pane" role="tabpanel" aria-labelledby="section_products_tab" id="section_products_content">
+        <table class="table">
+            <thead>
+                <tr class="dataTableHeadingRow">
+                    <th class="dataTableHeadingContent" colspan="2"><?php echo TABLE_HEADING_PRODUCTS; ?></th>
+                    <th class="dataTableHeadingContent"><?php echo TABLE_HEADING_PRODUCTS_MODEL; ?></th>
+                    <th class="dataTableHeadingContent" align="right"><?php echo TABLE_HEADING_TAX; ?></th>
+                    <th class="dataTableHeadingContent" align="right"><?php echo TABLE_HEADING_PRICE_EXCLUDING_TAX; ?></th>
+                    <th class="dataTableHeadingContent" align="right"><?php echo TABLE_HEADING_PRICE_INCLUDING_TAX; ?></th>
+                    <th class="dataTableHeadingContent" align="right"><?php echo TABLE_HEADING_TOTAL_EXCLUDING_TAX; ?></th>
+                    <th class="dataTableHeadingContent" align="right"><?php echo TABLE_HEADING_TOTAL_INCLUDING_TAX; ?></th>
+                </tr>
+            </thead>
 <?php
     for ($i=0, $n=sizeof($order->products); $i<$n; $i++) {
       echo '      <tr class="dataTableRow">' . "\n" .
@@ -230,7 +226,7 @@
       echo '      </tr>' . "\n";
     }
 ?>
-<tfoot>
+            <tfoot>
 <?php
     foreach ( $order->totals as $ot ) {
       echo '          <tr>' . "\n" .
@@ -239,11 +235,11 @@
            '          </tr>' . "\n";
     }
 ?>
-</tfoot>
+            </tfoot>
         </table>
-  </div>
+    </div>
 
-  <div role="tabpanel" class="tab-pane fade" id="section_status_history_content">
+  <div role="tabpanel" class="tab-pane" role="tabpanel" aria-labelledby="section_status_history_tab" id="section_status_history_content">
     <?php echo tep_draw_form('status', 'orders.php', tep_get_all_get_params(array('action')) . 'action=update_order'); ?>
 
     <table class="table">
@@ -270,17 +266,17 @@
 
     </form>
 
-    <br />
+
 
     <table class="table">
-    <thead>
-        <tr class="dataTableHeadingRow">
-            <th class="dataTableHeadingContent" align="center"><?php echo TABLE_HEADING_DATE_ADDED; ?></th>
-            <th class="dataTableHeadingContent" align="center"><?php echo TABLE_HEADING_STATUS; ?></th>
-            <th class="dataTableHeadingContent" align="center"><?php echo TABLE_HEADING_COMMENTS; ?></th>
-            <th class="dataTableHeadingContent" align="right"><?php echo TABLE_HEADING_CUSTOMER_NOTIFIED; ?></th>
-        </tr>
-    </thead>
+        <thead>
+            <tr class="dataTableHeadingRow">
+                <th class="dataTableHeadingContent" align="center"><?php echo TABLE_HEADING_DATE_ADDED; ?></th>
+                <th class="dataTableHeadingContent" align="center"><?php echo TABLE_HEADING_STATUS; ?></th>
+                <th class="dataTableHeadingContent" align="center"><?php echo TABLE_HEADING_COMMENTS; ?></th>
+                <th class="dataTableHeadingContent" align="right"><?php echo TABLE_HEADING_CUSTOMER_NOTIFIED; ?></th>
+            </tr>
+        </thead>
 
 <?php
     $orders_history_query = tep_db_query("select orders_status_id, date_added, customer_notified, comments from " . TABLE_ORDERS_STATUS_HISTORY . " where orders_id = '" . tep_db_input($oID) . "' order by date_added desc");
@@ -315,13 +311,7 @@
     echo $OSCOM_Hooks->call('orders', 'orderTab');
 ?>
 
-</div>
-<script>
-$('#orderTabs a').click(function (e) {
-  e.preventDefault()
-  $(this).tab('show')
-});
-</script>
+
 <?php
   } else {
 ?>
@@ -386,7 +376,7 @@ $('#orderTabs a').click(function (e) {
 
         </table>
         <nav>
-            <ul class="pagination pull-left"><?php echo $orders_split->display_count($orders_query_numrows, MAX_DISPLAY_SEARCH_RESULTS, $_GET['page'], TEXT_DISPLAY_NUMBER_OF_ORDERS); ?></ul>
+            <ul class="pagination float-left"><?php echo $orders_split->display_count($orders_query_numrows, MAX_DISPLAY_SEARCH_RESULTS, $_GET['page'], TEXT_DISPLAY_NUMBER_OF_ORDERS); ?></ul>
             <?php echo $orders_split->display_links($orders_query_numrows, MAX_DISPLAY_SEARCH_RESULTS, MAX_DISPLAY_PAGE_LINKS, $_GET['page'], tep_get_all_get_params(array('page', 'oID', 'action'))); ?>
         </nav>
 	</div>    

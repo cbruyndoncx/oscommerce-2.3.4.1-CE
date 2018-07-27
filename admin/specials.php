@@ -80,7 +80,7 @@
 <?php
   if (empty($action)) {
 ?>
-		<div class="pull-right"><?php echo tep_draw_button(IMAGE_NEW_PRODUCT, 'plus', tep_href_link('specials.php', 'page=' . $_GET['page'] . '&action=new')); ?></div>
+		<div class="float-right"><?php echo tep_draw_button(IMAGE_NEW_PRODUCT, 'plus', tep_href_link('specials.php', 'page=' . $_GET['page'] . '&action=new')); ?></div>
 <?php
   }
 ?>
@@ -132,7 +132,7 @@ $('#expdate').datepicker({
 			</table>
 			<div class="alert alert-info"><?php echo TEXT_SPECIALS_PRICE_TIP; ?></div>
 			<nav>
-				<ul class="pull-right"><?php echo tep_draw_button(IMAGE_SAVE, 'disk', null, 'primary') . ' ' . tep_draw_button(IMAGE_CANCEL, 'close', tep_href_link('specials.php', 'page=' . $_GET['page'] . (isset($_GET['sID']) ? '&sID=' . $_GET['sID'] : ''))); ?></ul>
+				<ul class="float-right"><?php echo tep_draw_button(IMAGE_SAVE, 'disk', null, 'primary') . ' ' . tep_draw_button(IMAGE_CANCEL, 'close', tep_href_link('specials.php', 'page=' . $_GET['page'] . (isset($_GET['sID']) ? '&sID=' . $_GET['sID'] : ''))); ?></ul>
 			</nav>
 		</form>
 	</div>
@@ -185,7 +185,7 @@ $('#expdate').datepicker({
 ?>
 		</table>
 		<nav>
-			<ul class="pagination pull-left"><?php echo $specials_split->display_count($specials_query_numrows, MAX_DISPLAY_SEARCH_RESULTS, $_GET['page'], TEXT_DISPLAY_NUMBER_OF_SPECIALS); ?></ul>
+			<ul class="pagination float-left"><?php echo $specials_split->display_count($specials_query_numrows, MAX_DISPLAY_SEARCH_RESULTS, $_GET['page'], TEXT_DISPLAY_NUMBER_OF_SPECIALS); ?></ul>
 		    <?php echo $specials_split->display_links($specials_query_numrows, MAX_DISPLAY_SEARCH_RESULTS, MAX_DISPLAY_PAGE_LINKS, $_GET['page']); ?></td>
 		</nav>
 	</div>

@@ -128,7 +128,7 @@ echo '</form>';
 				</tr>
 			</table>
 			<nav>
-				<ul class="pagination pull-right"><?php if ($file_writeable == true) { echo tep_draw_button(IMAGE_SAVE, 'disk', null, 'primary') . tep_draw_button(IMAGE_CANCEL, 'close', tep_href_link('define_language.php', 'lngdir=' . $_GET['lngdir'])); } else { echo tep_draw_button(IMAGE_BACK, 'arrow-1-w', tep_href_link('define_language.php', 'lngdir=' . $_GET['lngdir'])); } ?></ul>
+				<ul class="pagination float-right"><?php if ($file_writeable == true) { echo tep_draw_button(IMAGE_SAVE, 'disk', null, 'primary') . tep_draw_button(IMAGE_CANCEL, 'close', tep_href_link('define_language.php', 'lngdir=' . $_GET['lngdir'])); } else { echo tep_draw_button(IMAGE_BACK, 'arrow-1-w', tep_href_link('define_language.php', 'lngdir=' . $_GET['lngdir'])); } ?></ul>
 			</nav>	
 		</form>
 	</div>
@@ -140,8 +140,8 @@ echo '</form>';
 ?>
 	<div class="col-md-8">
 		<nav>
-				<ul class="pagination pull-left"><strong><?php echo TEXT_FILE_DOES_NOT_EXIST; ?></strong></ul>
-				<ul class="pagination pull-right"><?php echo tep_draw_button(IMAGE_BACK, 'arrow-1-w', tep_href_link('define_language.php', 'lngdir=' . $_GET['lngdir'])); ?></ul>
+				<ul class="pagination float-left"><strong><?php echo TEXT_FILE_DOES_NOT_EXIST; ?></strong></ul>
+				<ul class="pagination float-right"><?php echo tep_draw_button(IMAGE_BACK, 'arrow-1-w', tep_href_link('define_language.php', 'lngdir=' . $_GET['lngdir'])); ?></ul>
 		</nav>
 	</div>
 <?php

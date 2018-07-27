@@ -56,7 +56,7 @@
 <?php	
 	if (empty($action)) {
 ?>
-	<div class="pull-right"><?php echo tep_draw_button(IMAGE_NEW_TAX_RATE, 'plus', tep_href_link('tax_rates.php', 'page=' . $_GET['page'] . '&action=new')); ?></div>
+	<div class="float-right"><?php echo tep_draw_button(IMAGE_NEW_TAX_RATE, 'plus', tep_href_link('tax_rates.php', 'page=' . $_GET['page'] . '&action=new')); ?></div>
 <?php
 	}
 ?>	
@@ -101,7 +101,7 @@
 ?>
 		</table>
 		<nav>
-			<ul class="pagination pull-left"><?php echo $rates_split->display_count($rates_query_numrows, MAX_DISPLAY_SEARCH_RESULTS, $_GET['page'], TEXT_DISPLAY_NUMBER_OF_TAX_RATES); ?></ul>
+			<ul class="pagination float-left"><?php echo $rates_split->display_count($rates_query_numrows, MAX_DISPLAY_SEARCH_RESULTS, $_GET['page'], TEXT_DISPLAY_NUMBER_OF_TAX_RATES); ?></ul>
 			<?php echo $rates_split->display_links($rates_query_numrows, MAX_DISPLAY_SEARCH_RESULTS, MAX_DISPLAY_PAGE_LINKS, $_GET['page']); ?>
 			</nav>
 	</div>

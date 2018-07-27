@@ -190,7 +190,7 @@ function popupImageWindow(url) {
 //--></script>
 
 <div class="page-header">
-	<div class="pull-right"><?php echo tep_draw_button(IMAGE_NEW_BANNER, 'plus', tep_href_link('banner_manager.php', 'action=new')); ?></div>
+	<div class="float-right"><?php echo tep_draw_button(IMAGE_NEW_BANNER, 'plus', tep_href_link('banner_manager.php', 'action=new')); ?></div>
 	<h1><?php echo HEADING_TITLE; ?></h1>
 </div>
 <div class="row">	
@@ -269,7 +269,7 @@ function popupImageWindow(url) {
 
 			</table>
 			<nav>
-				<ul class="pull-right"><?php echo tep_draw_button(IMAGE_SAVE, 'disk', null, 'primary') . ' ' . tep_draw_button(IMAGE_CANCEL, 'close', tep_href_link('banner_manager.php', (isset($_GET['page']) ? 'page=' . $_GET['page'] . '&' : '') . (isset($_GET['bID']) ? 'bID=' . $_GET['bID'] : ''))); ?></ul>
+				<ul class="float-right"><?php echo tep_draw_button(IMAGE_SAVE, 'disk', null, 'primary') . ' ' . tep_draw_button(IMAGE_CANCEL, 'close', tep_href_link('banner_manager.php', (isset($_GET['page']) ? 'page=' . $_GET['page'] . '&' : '') . (isset($_GET['bID']) ? 'bID=' . $_GET['bID'] : ''))); ?></ul>
 			</nav>			
 		</form>
 	</div>
@@ -331,7 +331,7 @@ function popupImageWindow(url) {
 ?>
 		</table>
 		<nav>
-			<ul class="pagination pull-left"><?php echo $banners_split->display_count($banners_query_numrows, MAX_DISPLAY_SEARCH_RESULTS, $_GET['page'], TEXT_DISPLAY_NUMBER_OF_BANNERS); ?></ul>
+			<ul class="pagination float-left"><?php echo $banners_split->display_count($banners_query_numrows, MAX_DISPLAY_SEARCH_RESULTS, $_GET['page'], TEXT_DISPLAY_NUMBER_OF_BANNERS); ?></ul>
 			<?php echo $banners_split->display_links($banners_query_numrows, MAX_DISPLAY_SEARCH_RESULTS, MAX_DISPLAY_PAGE_LINKS, $_GET['page']); ?>
 		</nav>
 	</div>

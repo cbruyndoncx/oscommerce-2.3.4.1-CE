@@ -291,7 +291,7 @@
 ?>
 		</table>
 		<nav>
-			<ul class="pull-right"><?php echo tep_draw_button(IMAGE_INSERT, 'plus', tep_href_link('administrators.php', 'action=new')); ?></ul>
+			<ul class="float-right"><?php echo tep_draw_button(IMAGE_INSERT, 'plus', tep_href_link('administrators.php', 'action=new')); ?></ul>
 		</nav>
 	</div>
 <?php

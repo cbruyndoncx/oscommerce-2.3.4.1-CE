@@ -39,7 +39,7 @@
                         '  </tr>' . "\n" .
                         '  </table>' . "\n" .
                         '  <nav>' . "\n" .
-                        '    <ul class="pagination pull-right">' . tep_draw_button(IMAGE_SEND, 'mail-closed', tep_href_link('newsletters.php', 'page=' . $_GET['page'] . '&nID=' . $_GET['nID'] . '&action=confirm_send'), 'primary') . ' ' . tep_draw_button(IMAGE_CANCEL, 'close', tep_href_link('newsletters.php', 'page=' . $_GET['page'] . '&nID=' . $_GET['nID'])) . '</ul>' . "\n" .
+                        '    <ul class="pagination float-right">' . tep_draw_button(IMAGE_SEND, 'mail-closed', tep_href_link('newsletters.php', 'page=' . $_GET['page'] . '&nID=' . $_GET['nID'] . '&action=confirm_send'), 'primary') . ' ' . tep_draw_button(IMAGE_CANCEL, 'close', tep_href_link('newsletters.php', 'page=' . $_GET['page'] . '&nID=' . $_GET['nID'])) . '</ul>' . "\n" .
                         '  </nav>' . "\n" .
                         '';
 

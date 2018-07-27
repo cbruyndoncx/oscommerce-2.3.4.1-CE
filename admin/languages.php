@@ -124,7 +124,7 @@
 <?php	
 	if (empty($action)) {
 ?>
-		<div class="pull-right"><?php echo tep_draw_button(IMAGE_NEW_LANGUAGE, 'plus', tep_href_link('languages.php', 'page=' . $_GET['page'] . '&lID=' . $lInfo->languages_id . '&action=new')); ?></div><?php
+		<div class="float-right"><?php echo tep_draw_button(IMAGE_NEW_LANGUAGE, 'plus', tep_href_link('languages.php', 'page=' . $_GET['page'] . '&lID=' . $lInfo->languages_id . '&action=new')); ?></div><?php
   }
 ?>
 	<h1><?php echo HEADING_TITLE; ?></h1>
@@ -170,7 +170,7 @@
 ?>
 		</table>
 		<nav>
-			<ul class="pagination pull-left"><?php echo $languages_split->display_count($languages_query_numrows, MAX_DISPLAY_SEARCH_RESULTS, $_GET['page'], TEXT_DISPLAY_NUMBER_OF_LANGUAGES); ?></ul>
+			<ul class="pagination float-left"><?php echo $languages_split->display_count($languages_query_numrows, MAX_DISPLAY_SEARCH_RESULTS, $_GET['page'], TEXT_DISPLAY_NUMBER_OF_LANGUAGES); ?></ul>
 			<?php echo $languages_split->display_links($languages_query_numrows, MAX_DISPLAY_SEARCH_RESULTS, MAX_DISPLAY_PAGE_LINKS, $_GET['page']); ?>
 		</nav>
 	</div>

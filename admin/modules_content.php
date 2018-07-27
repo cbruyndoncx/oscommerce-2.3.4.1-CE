@@ -165,9 +165,9 @@
 <div class="page-header">
 <?php
   if (isset($_GET['list'])) {
-    echo '<div class="pull-right">' . tep_draw_button(IMAGE_BACK, 'triangle-1-w', tep_href_link('modules_content.php')) . '</div>';
+    echo '<div class="float-right">' . tep_draw_button(IMAGE_BACK, 'triangle-1-w', tep_href_link('modules_content.php')) . '</div>';
   } else {
-    echo '<div class="pull-right">' . tep_draw_button(IMAGE_MODULE_INSTALL . ' (' . count($modules['new']) . ')', 'plus', tep_href_link('modules_content.php', 'action=list_new')) . '</div>';
+    echo '<div class="float-right">' . tep_draw_button(IMAGE_MODULE_INSTALL . ' (' . count($modules['new']) . ')', 'plus', tep_href_link('modules_content.php', 'action=list_new')) . '</div>';
   }
 ?>	
 	<h1><?php echo HEADING_TITLE; ?></h1>

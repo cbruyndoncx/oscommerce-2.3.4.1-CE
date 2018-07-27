@@ -60,7 +60,7 @@
 </div>
 <div class="row">
 	<div class="col-md-8">
-		<div class="pull-left">
+		<div class="float-left">
 <?php 
 	echo tep_draw_form('year', 'banner_statistics.php', '', 'get', 'class="form-inline"');
 	echo ' ' . TITLE_TYPE . ' ' . tep_draw_pull_down_menu('type', $type_array, (tep_not_null($type) ? $type : 'daily'), 'onchange="this.form.submit();"');
@@ -139,7 +139,7 @@ echo '</form>';
   }
 ?>
 		<nav>
-			<ul class="pull-right"><?php echo tep_draw_button(IMAGE_BACK, 'arrow-1-w', tep_href_link('banner_manager.php', 'page=' . $_GET['page'] . '&bID=' . $_GET['bID'])); ?></ul>
+			<ul class="float-right"><?php echo tep_draw_button(IMAGE_BACK, 'arrow-1-w', tep_href_link('banner_manager.php', 'page=' . $_GET['page'] . '&bID=' . $_GET['bID'])); ?></ul>
 		</nav>
 	</div>
 <?php

@@ -98,7 +98,7 @@
 <?php	
 	if (empty($action)) {
 ?>
-		<div class="pull-right"><?php echo tep_draw_button(IMAGE_INSERT, 'plus', tep_href_link('orders_status.php', 'page=' . $_GET['page'] . '&action=new')); ?></div>
+		<div class="float-right"><?php echo tep_draw_button(IMAGE_INSERT, 'plus', tep_href_link('orders_status.php', 'page=' . $_GET['page'] . '&action=new')); ?></div>
 <?php
 	}
 ?>	
@@ -146,7 +146,7 @@
 ?>
 		</table>
 		<nav>
-			<ul class="pagination pull-left"><?php echo $orders_status_split->display_count($orders_status_query_numrows, MAX_DISPLAY_SEARCH_RESULTS, $_GET['page'], TEXT_DISPLAY_NUMBER_OF_ORDERS_STATUS); ?></ul>
+			<ul class="pagination float-left"><?php echo $orders_status_split->display_count($orders_status_query_numrows, MAX_DISPLAY_SEARCH_RESULTS, $_GET['page'], TEXT_DISPLAY_NUMBER_OF_ORDERS_STATUS); ?></ul>
 			<?php echo $orders_status_split->display_links($orders_status_query_numrows, MAX_DISPLAY_SEARCH_RESULTS, MAX_DISPLAY_PAGE_LINKS, $_GET['page']); ?>
 		</nav>
 	</div>

@@ -116,14 +116,14 @@ function update_zone(theForm) {
 <?php	
 	if (empty($action)) {
 ?>
-	<div class="pull-right"><?php if (!$action) echo tep_draw_button(IMAGE_INSERT, 'plus', tep_href_link('geo_zones.php', 'zpage=' . $_GET['zpage'] . '&zID=' . $zInfo->geo_zone_id . '&action=new_zone')); ?></div>	
+	<div class="float-right"><?php if (!$action) echo tep_draw_button(IMAGE_INSERT, 'plus', tep_href_link('geo_zones.php', 'zpage=' . $_GET['zpage'] . '&zID=' . $zInfo->geo_zone_id . '&action=new_zone')); ?></div>	
 <?php
 	}
 ?>
 <?php
   if ($action == 'list') {
 ?>
-	<div class="pull-right"><?php echo tep_draw_button(IMAGE_BACK, 'triangle-1-w', tep_href_link('geo_zones.php', 'zpage=' . $_GET['zpage'] . '&zID=' . $_GET['zID'])) . ' ' . tep_draw_button(IMAGE_INSERT, 'plus', tep_href_link('geo_zones.php', 'zpage=' . $_GET['zpage'] . '&zID=' . $_GET['zID'] . '&action=list&spage=' . $_GET['spage'] . '&' . (isset($sInfo) ? 'sID=' . $sInfo->association_id . '&' : '') . 'saction=new')); ?></div>
+	<div class="float-right"><?php echo tep_draw_button(IMAGE_BACK, 'triangle-1-w', tep_href_link('geo_zones.php', 'zpage=' . $_GET['zpage'] . '&zID=' . $_GET['zID'])) . ' ' . tep_draw_button(IMAGE_INSERT, 'plus', tep_href_link('geo_zones.php', 'zpage=' . $_GET['zpage'] . '&zID=' . $_GET['zID'] . '&action=list&spage=' . $_GET['spage'] . '&' . (isset($sInfo) ? 'sID=' . $sInfo->association_id . '&' : '') . 'saction=new')); ?></div>
 <?php
   }
 ?>  
@@ -167,7 +167,7 @@ function update_zone(theForm) {
 ?>
 		</table>
 		<nav>
-			<ul class="pagination pull-left"><?php echo $zones_split->display_count($zones_query_numrows, MAX_DISPLAY_SEARCH_RESULTS, $_GET['spage'], TEXT_DISPLAY_NUMBER_OF_COUNTRIES); ?></ul>
+			<ul class="pagination float-left"><?php echo $zones_split->display_count($zones_query_numrows, MAX_DISPLAY_SEARCH_RESULTS, $_GET['spage'], TEXT_DISPLAY_NUMBER_OF_COUNTRIES); ?></ul>
 			<?php echo $zones_split->display_links($zones_query_numrows, MAX_DISPLAY_SEARCH_RESULTS, MAX_DISPLAY_PAGE_LINKS, $_GET['spage'], 'zpage=' . $_GET['zpage'] . '&zID=' . $_GET['zID'] . '&action=list', 'spage'); ?>
 		</nav>
 	</div>
@@ -213,7 +213,7 @@ function update_zone(theForm) {
 ?>
 		</table>
 		<nav>
-			<ul class="pagination pull-left"><?php echo $zones_split->display_count($zones_query_numrows, MAX_DISPLAY_SEARCH_RESULTS, $_GET['zpage'], TEXT_DISPLAY_NUMBER_OF_TAX_ZONES); ?></ul>
+			<ul class="pagination float-left"><?php echo $zones_split->display_count($zones_query_numrows, MAX_DISPLAY_SEARCH_RESULTS, $_GET['zpage'], TEXT_DISPLAY_NUMBER_OF_TAX_ZONES); ?></ul>
 			<?php echo $zones_split->display_links($zones_query_numrows, MAX_DISPLAY_SEARCH_RESULTS, MAX_DISPLAY_PAGE_LINKS, $_GET['zpage'], '', 'zpage'); ?>
 		</nav>
 	</div>

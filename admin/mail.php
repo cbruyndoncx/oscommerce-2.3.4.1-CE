@@ -110,7 +110,7 @@
         echo tep_draw_hidden_field($key, htmlspecialchars(stripslashes($value)));
       }
     }
-    echo '<ul class="pagination pull-right">' . tep_draw_button(IMAGE_SEND_EMAIL, 'mail-closed', null, 'primary') . ' ' . tep_draw_button(IMAGE_CANCEL, 'close', tep_href_link('mail.php')) . '</ul>';
+    echo '<ul class="pagination float-right">' . tep_draw_button(IMAGE_SEND_EMAIL, 'mail-closed', null, 'primary') . ' ' . tep_draw_button(IMAGE_CANCEL, 'close', tep_href_link('mail.php')) . '</ul>';
 ?>
 			</nav>			
 		</form>
@@ -148,7 +148,7 @@
 				</tr>
 			</table>
 			<nav>
-				<ul class="pagination pull-right"><?php echo tep_draw_button(IMAGE_PREVIEW, 'document', null, 'primary'); ?></ul>
+				<ul class="pagination float-right"><?php echo tep_draw_button(IMAGE_PREVIEW, 'document', null, 'primary'); ?></ul>
 			</nav>			
 		</form>
 <?php

@@ -61,7 +61,7 @@
   require('includes/template_top.php');
 ?>
 <div class="page-header">
-	<div class="pull-right"><?php echo tep_draw_button('Reload', 'arrowrefresh-1-e', tep_href_link('security_checks.php')); ?></div>
+	<div class="float-right"><?php echo tep_draw_button('Reload', 'arrowrefresh-1-e', tep_href_link('security_checks.php')); ?></div>
 	<h1><?php echo HEADING_TITLE; ?></h1>
 </div>
 <div class="row">	

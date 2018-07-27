@@ -63,7 +63,7 @@
 <?php	
 	if (empty($action)) {
 ?>
-	<div class="pull-right"><?php echo tep_draw_button(IMAGE_BUTTON_ADD_TESTIMONIAL, 'triangle-1-e', tep_href_link('testimonials.php', 'action=new')); ?></div>
+	<div class="float-right"><?php echo tep_draw_button(IMAGE_BUTTON_ADD_TESTIMONIAL, 'triangle-1-e', tep_href_link('testimonials.php', 'action=new')); ?></div>
 <?php
 	}
 ?>	
@@ -100,7 +100,7 @@
 				</tr>    
 			</table>
 				<nav>
-					<ul class="pull-right"><?php echo tep_draw_hidden_field('testimonials_id', $tInfo->testimonials_id) . tep_draw_hidden_field('customers_name', $tInfo->customers_name) . tep_draw_hidden_field('date_added', $tInfo->date_added) . tep_draw_button(IMAGE_SAVE, 'document') . ' ' . tep_draw_button(IMAGE_CANCEL, 'close', tep_href_link('testimonials.php', 'page=' . $_GET['page'] . '&tID=' . $_GET['tID'])); ?></ul>
+					<ul class="float-right"><?php echo tep_draw_hidden_field('testimonials_id', $tInfo->testimonials_id) . tep_draw_hidden_field('customers_name', $tInfo->customers_name) . tep_draw_hidden_field('date_added', $tInfo->date_added) . tep_draw_button(IMAGE_SAVE, 'document') . ' ' . tep_draw_button(IMAGE_CANCEL, 'close', tep_href_link('testimonials.php', 'page=' . $_GET['page'] . '&tID=' . $_GET['tID'])); ?></ul>
 				</nav>			
 		</form>
 	</div><!-- end col-* -->
@@ -118,7 +118,7 @@
 			</tr>
 		</table>
 			<nav>
-				<ul class="pull-right"><?php echo tep_draw_button(IMAGE_CANCEL, 'close', tep_href_link('testimonials.php', 'page=' . $_GET['page'])) . ' ' . tep_draw_button(IMAGE_SAVE, 'disk', null, 'primary'); ?></ul>
+				<ul class="float-right"><?php echo tep_draw_button(IMAGE_CANCEL, 'close', tep_href_link('testimonials.php', 'page=' . $_GET['page'])) . ' ' . tep_draw_button(IMAGE_SAVE, 'disk', null, 'primary'); ?></ul>
 			</nav>		
 		</form>
 	</div><!-- end col-* -->
@@ -171,7 +171,7 @@
 ?>
 		</table>
 		<nav>
-			<ul class="pagination pull-left"><?php echo $testimonials_split->display_count($testimonials_query_numrows, MAX_DISPLAY_SEARCH_RESULTS, $_GET['page'], TEXT_DISPLAY_NUMBER_OF_TESTIMONIALS); ?></ul>
+			<ul class="pagination float-left"><?php echo $testimonials_split->display_count($testimonials_query_numrows, MAX_DISPLAY_SEARCH_RESULTS, $_GET['page'], TEXT_DISPLAY_NUMBER_OF_TESTIMONIALS); ?></ul>
 			<?php echo $testimonials_split->display_links($testimonials_query_numrows, MAX_DISPLAY_SEARCH_RESULTS, MAX_DISPLAY_PAGE_LINKS, $_GET['page']); ?></td>
 		</nav>
 	</div><!-- end col-* -->

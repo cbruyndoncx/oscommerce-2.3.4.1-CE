@@ -109,7 +109,7 @@
 <?php	
 	if (empty($action)) {
 ?>
-	<div class="pull-right"><?php echo tep_draw_button(IMAGE_NEW_NEWSLETTER, 'plus', tep_href_link('newsletters.php', 'action=new')); ?></div>
+	<div class="float-right"><?php echo tep_draw_button(IMAGE_NEW_NEWSLETTER, 'plus', tep_href_link('newsletters.php', 'action=new')); ?></div>
 <?php
 	}
 ?>
@@ -175,7 +175,7 @@
 			</table>
 
 			<nav>
-				<ul class="pagination pull-right"><?php echo tep_draw_button(IMAGE_SAVE, 'disk', null, 'primary') . ' ' . tep_draw_button(IMAGE_CANCEL, 'close', tep_href_link('newsletters.php', (isset($_GET['page']) ? 'page=' . $_GET['page'] . '&' : '') . (isset($_GET['nID']) ? 'nID=' . $_GET['nID'] : ''))); ?></ul>
+				<ul class="pagination float-right"><?php echo tep_draw_button(IMAGE_SAVE, 'disk', null, 'primary') . ' ' . tep_draw_button(IMAGE_CANCEL, 'close', tep_href_link('newsletters.php', (isset($_GET['page']) ? 'page=' . $_GET['page'] . '&' : '') . (isset($_GET['nID']) ? 'nID=' . $_GET['nID'] : ''))); ?></ul>
 			</nav>
 		</form>
 	</div>
@@ -195,7 +195,7 @@
 			</tr>
 		</table>
 		<nav>
-			<ul class="pagination pull-left"><?php echo tep_draw_button(IMAGE_BACK, 'triangle-1-w', tep_href_link('newsletters.php', 'page=' . $_GET['page'] . '&nID=' . $_GET['nID'])); ?></ul>
+			<ul class="pagination float-left"><?php echo tep_draw_button(IMAGE_BACK, 'triangle-1-w', tep_href_link('newsletters.php', 'page=' . $_GET['page'] . '&nID=' . $_GET['nID'])); ?></ul>
 		</nav>
 	</div>
 <?php
@@ -261,7 +261,7 @@
         </table>
 		<span class="help-block"><font color="#ff0000"><strong><?php echo TEXT_FINISHED_SENDING_EMAILS; ?></strong></font></span>
 		<nav>
-			<ul class="pagination pull-right"><?php echo tep_draw_button(IMAGE_BACK, 'triangle-1-w', tep_href_link('newsletters.php', 'page=' . $_GET['page'] . '&nID=' . $_GET['nID'])); ?></ul>
+			<ul class="pagination float-right"><?php echo tep_draw_button(IMAGE_BACK, 'triangle-1-w', tep_href_link('newsletters.php', 'page=' . $_GET['page'] . '&nID=' . $_GET['nID'])); ?></ul>
 		</nav>		
 	</div>	  
 <?php
@@ -306,7 +306,7 @@
 ?>
 		</table>
 		<nav>
-			<ul class="pagination pull-left"><?php echo $newsletters_split->display_count($newsletters_query_numrows, MAX_DISPLAY_SEARCH_RESULTS, $_GET['page'], TEXT_DISPLAY_NUMBER_OF_NEWSLETTERS); ?></ul>
+			<ul class="pagination float-left"><?php echo $newsletters_split->display_count($newsletters_query_numrows, MAX_DISPLAY_SEARCH_RESULTS, $_GET['page'], TEXT_DISPLAY_NUMBER_OF_NEWSLETTERS); ?></ul>
             <?php echo $newsletters_split->display_links($newsletters_query_numrows, MAX_DISPLAY_SEARCH_RESULTS, MAX_DISPLAY_PAGE_LINKS, $_GET['page']); ?></td>
 		</nav>
 	</div>

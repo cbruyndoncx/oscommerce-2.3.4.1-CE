@@ -90,7 +90,7 @@
 <?php	
 	if (empty($action)) {
 ?>
-	<div class="pull-right"><?php echo tep_draw_button(IMAGE_EXPORT, 'triangle-1-nw', tep_href_link('server_info.php', 'action=export'));?></div>
+	<div class="float-right"><?php echo tep_draw_button(IMAGE_EXPORT, 'triangle-1-nw', tep_href_link('server_info.php', 'action=export'));?></div>
 <?php
 	}
 ?>	
@@ -111,8 +111,8 @@
 			</tr>
         </table>
       <nav>
-          <ul class="pull-left"><?php echo tep_draw_button(IMAGE_CANCEL, 'arrowreturnthick-1-n', tep_href_link('server_info.php'), 'primary');?></ul>
-          <ul class="pull-right"><?php echo tep_draw_button(IMAGE_SEND, 'arrowreturnthick-1-n', tep_href_link('server_info.php', 'action=submit'), 'primary') . ' ' . tep_draw_button(IMAGE_SAVE, 'disk', tep_href_link('server_info.php', 'action=save'), 'primary');?></ul>
+          <ul class="float-left"><?php echo tep_draw_button(IMAGE_CANCEL, 'arrowreturnthick-1-n', tep_href_link('server_info.php'), 'primary');?></ul>
+          <ul class="float-right"><?php echo tep_draw_button(IMAGE_SEND, 'arrowreturnthick-1-n', tep_href_link('server_info.php', 'action=submit'), 'primary') . ' ' . tep_draw_button(IMAGE_SAVE, 'disk', tep_href_link('server_info.php', 'action=save'), 'primary');?></ul>
       </nav>
   <?php
   } else {

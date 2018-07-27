@@ -68,7 +68,7 @@
 			</tr>
 		</table>
 		<nav>
-			<ul class="pull-right"><?php echo tep_draw_button(IMAGE_SAVE, 'disk', null, 'primary'); ?></ul>
+			<ul class="float-right"><?php echo tep_draw_button(IMAGE_SAVE, 'disk', null, 'primary'); ?></ul>
 		</nav>
 	</form>
 	</div>

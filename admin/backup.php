@@ -389,12 +389,12 @@
 ?>
 		</table>
 		<nav>
-			<ul class="pagination pull-left"><?php echo TEXT_BACKUP_DIRECTORY . ' ' . DIR_FS_BACKUP; ?></ul>
-            <ul class="pagination pull-right"><?php if ( ($action != 'backup') && (isset($dir)) ) echo tep_draw_button(IMAGE_BACKUP, 'copy', tep_href_link('backup.php', 'action=backup')); if ( ($action != 'restorelocal') && isset($dir) ) echo tep_draw_button(IMAGE_RESTORE, 'arrowrefresh-1-w', tep_href_link('backup.php', 'action=restorelocal')); ?></ul>
+			<ul class="pagination float-left"><?php echo TEXT_BACKUP_DIRECTORY . ' ' . DIR_FS_BACKUP; ?></ul>
+            <ul class="pagination float-right"><?php if ( ($action != 'backup') && (isset($dir)) ) echo tep_draw_button(IMAGE_BACKUP, 'copy', tep_href_link('backup.php', 'action=backup')); if ( ($action != 'restorelocal') && isset($dir) ) echo tep_draw_button(IMAGE_RESTORE, 'arrowrefresh-1-w', tep_href_link('backup.php', 'action=restorelocal')); ?></ul>
 <?php
   if (defined('DB_LAST_RESTORE')) {
 ?>
-<ul class="pagination pull-left"><?php echo TEXT_LAST_RESTORATION . ' ' . DB_LAST_RESTORE . ' <a href="' . tep_href_link('backup.php', 'action=forget') . '">' . TEXT_FORGET . '</a>'; ?></ul>
+<ul class="pagination float-left"><?php echo TEXT_LAST_RESTORATION . ' ' . DB_LAST_RESTORE . ' <a href="' . tep_href_link('backup.php', 'action=forget') . '">' . TEXT_FORGET . '</a>'; ?></ul>
 <?php
   }
 ?>

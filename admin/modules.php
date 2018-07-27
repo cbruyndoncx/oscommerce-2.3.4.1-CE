@@ -111,9 +111,9 @@
 <div class="page-header">
 <?php
   if (isset($_GET['list'])) {
-    echo '<div class="pull-right">' . tep_draw_button(IMAGE_BACK, 'triangle-1-w', tep_href_link('modules.php', 'set=' . $set)) . '</div>';
+    echo '<div class="float-right">' . tep_draw_button(IMAGE_BACK, 'triangle-1-w', tep_href_link('modules.php', 'set=' . $set)) . '</div>';
   } else {
-    echo '<div class="pull-right">' . tep_draw_button(IMAGE_MODULE_INSTALL . ' (' . $new_modules_counter . ')', 'plus', tep_href_link('modules.php', 'set=' . $set . '&list=new')) . '</div>';
+    echo '<div class="float-right">' . tep_draw_button(IMAGE_MODULE_INSTALL . ' (' . $new_modules_counter . ')', 'plus', tep_href_link('modules.php', 'set=' . $set . '&list=new')) . '</div>';
   }
 ?>	
 	<h1><?php echo HEADING_TITLE; ?></h1>

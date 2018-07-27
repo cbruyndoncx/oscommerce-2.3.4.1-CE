@@ -51,71 +51,39 @@
       usort($group['apps'], 'tep_sort_admin_boxes_links');
     }	
 	$adminAppMenu = '';	
-	$adminAppMenu .= '<div id="adminAppMenu" class="col-md-2  col-md-pull-10">';
-	$adminAppMenu .= '<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">';
+	$adminAppMenu .= '<nav id="adminAppMenu" class="col-md-2 d-none d-md-block bg-light sidebar">';
+	$adminAppMenu .= '<div class="sidebar-sticky" id="accordion" aria-multiselectable="true">';
 	
 	$counter = 0;
 
 	foreach ($cl_box_groups as $groups) {
-		$adminAppMenu .= '<div class="panel panel-default">';
-		
-		$adminAppMenu .= '	<div class="panel-heading" role="tab" id="collapseListGroupHeading'.$counter.'">';
-		$adminAppMenu .= '		<h3 class="panel-title"><a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseListGroup'.$counter.'" aria-expanded="false" aria-controls="collapseListGroup'.$counter.'">' . $groups['heading'] . '</a></h3>';
-		$adminAppMenu .= '	</div>';
-		
-		$adminAppMenu .= '	<div id="collapseListGroup'.$counter.'" class="panel-collapse collapse" role="tabpanel" aria-labelledby="collapseListGroupHeading'.$counter.'">';
-		$adminAppMenu .= '		<ul class="list-group">';
-			foreach ($groups['apps'] as $app) {
-				$adminAppMenu .= '<li class="list-group-item"><a href="' . $app['link'] . '">' . $app['title'] . '</a></li>';
+	//$adminAppMenu .= '<div class="card">';	
+    
+        //$adminAppMenu .= '<div class="card-header" id="collapseListGroupHeading'.$counter.'">';
+        $adminAppMenu .= '  <h6 id="collapseListGroupHeading'.$counter.'" class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">';
+        $adminAppMenu .= '    <a class="d-flex align-items-center text-muted" data-toggle="collapse" data-parent="#accordion" href="#collapseListGroup'.$counter.'" aria-expanded="false" aria-controls="collapseListGroup'.$counter.'"">';
+        $adminAppMenu .= '      <span data-feather="plus-circle"></span> <span class="ml-1">' . $groups['heading'] . '</span>';
+        $adminAppMenu .= '    </a>';
+        $adminAppMenu .= '  </h6>';
+        //$adminAppMenu .= '</div>';        
+        
+        //$adminAppMenu .= '<div id="collapseListGroup'.$counter.'" class="card-collapse collapse" aria-labelledby="collapseListGroupHeading'.$counter.'">';
+		$adminAppMenu .= '<div id="collapseListGroup'.$counter.'" class="card-collapse collapse" role="tabpanel" aria-labelledby="collapseListGroupHeading'.$counter.'">';
+        //$adminAppMenu .= '  <div class="card-body">';
+		$adminAppMenu .= '      <ul class="nav flex-column mb-2">';
+			foreach ($groups['apps'] as $app) {               
+                $adminAppMenu .= '<li class="nav-item"><a class="nav-link" href="' . $app['link'] . '">' . $app['title'] . '</a></li>';
 			}
-		$adminAppMenu .= '		</ul>';
-		$adminAppMenu .= '	</div>';
-		
+		$adminAppMenu .= '      </ul>';
+		//$adminAppMenu .= '  </div>';
 		$adminAppMenu .= '</div>';
+		
+		//$adminAppMenu .= '</div>';//end card
 		$counter++;    
 	}
 	
 	$adminAppMenu .= '	</div>';
-	$adminAppMenu .= '</div>';
+	$adminAppMenu .= '</nav>';
 	echo $adminAppMenu;
-?>
-<script>
-	//Set the root
-	$rootPath = '<?php echo DIR_WS_ADMIN; ?>';
-	
-	//Keep state of collapse menu via localStorage
-	var adminCollapseAppMenu = localStorage.getItem('adminCollapseAppMenu');
-	if (!adminCollapseAppMenu) {
-		adminCollapseAppMenu = [];
-		localStorage.setItem('adminCollapseAppMenu', JSON.stringify(adminCollapseAppMenu));
-	} else {
-		adminCollapseAppMenuArray = JSON.parse(adminCollapseAppMenu);
-		var arrayLength = adminCollapseAppMenuArray.length;
-			for (var i = 0; i < arrayLength; i++) {
-				var panel = '#'+adminCollapseAppMenuArray[i];
-				$(panel).addClass('in');
-			}
-	}
-	$('#adminAppMenu').on('shown.bs.collapse', '.panel-collapse', function() {
-		adminCollapseAppMenu = JSON.parse(localStorage.getItem('adminCollapseAppMenu'));
-		if ($.inArray($(this).attr('id'), adminCollapseAppMenu) == -1) {
-			adminCollapseAppMenu.push($(this).attr('id'));
-		};
-		localStorage.setItem('adminCollapseAppMenu', JSON.stringify(adminCollapseAppMenu));
-	});
-	$('#adminAppMenu').on('hidden.bs.collapse', '.panel-collapse', function() {
-		adminCollapseAppMenu = JSON.parse(localStorage.getItem('adminCollapseAppMenu'));
-		adminCollapseAppMenu.splice( $.inArray($(this).attr('id'), adminCollapseAppMenu), 1 ); 
-		localStorage.setItem('adminCollapseAppMenu', JSON.stringify(adminCollapseAppMenu));
-	});	
-	if ( window.location.pathname == $rootPath || window.location.pathname == $rootPath+'index.php'){ 
-		//Close panels if navigate to index
-		adminCollapseAppMenu = [];
-		localStorage.setItem('adminCollapseAppMenu', JSON.stringify(adminCollapseAppMenu));
-		$('#adminAppMenu .panel-collapse').removeClass('in');
-	}	
-</script>
-
-<?php
   }
 ?>

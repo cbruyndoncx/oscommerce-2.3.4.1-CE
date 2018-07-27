@@ -85,7 +85,7 @@
   require('includes/template_top.php');
 ?>
 <div class="page-header">
-	<div class="pull-right">
+	<div class="float-right">
 <?php
 		echo tep_draw_form('search', 'action_recorder.php', '', 'get', 'class="form-inline"');
 		echo '&nbsp;' . TEXT_FILTER_SEARCH . ' ' . tep_draw_input_field('search');
@@ -93,7 +93,7 @@
 ?>
 	</div>
 
-	<div class="pull-right">
+	<div class="float-right">
 <?php
 		echo tep_draw_form('filter', 'action_recorder.php', '', 'get', 'class="form-inline"');
 		echo tep_draw_pull_down_menu('module', $modules_list_array, null, 'onchange="this.form.submit();"');
@@ -163,7 +163,7 @@
 ?>
             </table>
 			<nav>
-				<ul class="pagination pull-left"><?php echo $actions_split->display_count($actions_query_numrows, MAX_DISPLAY_SEARCH_RESULTS, $_GET['page'], TEXT_DISPLAY_NUMBER_OF_ENTRIES); ?></ul>
+				<ul class="pagination float-left"><?php echo $actions_split->display_count($actions_query_numrows, MAX_DISPLAY_SEARCH_RESULTS, $_GET['page'], TEXT_DISPLAY_NUMBER_OF_ENTRIES); ?></ul>
 				<?php echo $actions_split->display_links($actions_query_numrows, MAX_DISPLAY_SEARCH_RESULTS, MAX_DISPLAY_PAGE_LINKS, $_GET['page'], (isset($_GET['module']) && in_array($_GET['module'], $modules_array) && is_object(${$_GET['module']}) ? 'module=' . $_GET['module'] : null) . '&' . (isset($_GET['search']) && !empty($_GET['search']) ? 'search=' . $_GET['search'] : null)); ?>
 			</nav>
 		</div>

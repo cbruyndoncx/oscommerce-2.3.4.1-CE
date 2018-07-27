@@ -198,7 +198,7 @@
 <?php	
   if ( isset($action) ) {
 ?>
-	<div class="pull-right"><?php echo tep_draw_button(IMAGE_BACK, 'triangle-1-w', tep_href_link('database_tables.php')); ?></div>
+	<div class="float-right"><?php echo tep_draw_button(IMAGE_BACK, 'triangle-1-w', tep_href_link('database_tables.php')); ?></div>
 <?php
 	}
 ?>	

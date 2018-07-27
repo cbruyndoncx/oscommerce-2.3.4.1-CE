@@ -228,11 +228,11 @@
   }
 
   require('includes/template_top.php');
-        echo tep_draw_form('search', 'customers.php', '', 'get', 'class="form-inline pull-right"');
+        echo tep_draw_form('search', 'customers.php', '', 'get', 'class="form-inline float-right"');
 		echo HEADING_TITLE_SEARCH . ' ' . tep_draw_input_field('search'); ?><?php echo tep_hide_session_id();
     if (isset($_GET['search']) && tep_not_null($_GET['search'])) {
 ?>
-	<div class="pull-right"><?php echo tep_draw_button(IMAGE_RESET, 'arrowrefresh-1-w', tep_href_link('customers.php')); ?></div>
+	<div class="float-right"><?php echo tep_draw_button(IMAGE_RESET, 'arrowrefresh-1-w', tep_href_link('customers.php')); ?></div>
 <?php
     }
 		echo '</form>';
@@ -640,7 +640,7 @@ function check_form() {
 				</tr>
 			</table>
 			<nav>
-					<ul class="pull-right"><?php echo tep_draw_button(IMAGE_SAVE, 'disk', null, 'primary') . ' ' . tep_draw_button(IMAGE_CANCEL, 'close', tep_href_link('customers.php', tep_get_all_get_params(array('action')))); ?></ul>
+					<ul class="float-right"><?php echo tep_draw_button(IMAGE_SAVE, 'disk', null, 'primary') . ' ' . tep_draw_button(IMAGE_CANCEL, 'close', tep_href_link('customers.php', tep_get_all_get_params(array('action')))); ?></ul>
 			</nav>
 		</form>
 	</div><!-- end col-* -->
@@ -699,7 +699,7 @@ function check_form() {
 ?>
 		</table>
 		<nav>
-			<ul class="pagination pull-left"><?php echo $customers_split->display_count($customers_query_numrows, MAX_DISPLAY_SEARCH_RESULTS, $_GET['page'], TEXT_DISPLAY_NUMBER_OF_CUSTOMERS); ?></ul>
+			<ul class="pagination float-left"><?php echo $customers_split->display_count($customers_query_numrows, MAX_DISPLAY_SEARCH_RESULTS, $_GET['page'], TEXT_DISPLAY_NUMBER_OF_CUSTOMERS); ?></ul>
 			<?php echo $customers_split->display_links($customers_query_numrows, MAX_DISPLAY_SEARCH_RESULTS, MAX_DISPLAY_PAGE_LINKS, $_GET['page'], tep_get_all_get_params(array('page', 'info', 'x', 'y', 'cID'))); ?>
 		</nav>
 	</div><!-- end col-* -->

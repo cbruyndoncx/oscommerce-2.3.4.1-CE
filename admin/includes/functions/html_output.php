@@ -89,7 +89,7 @@
 ////
 // The HTML image wrapper function
   function tep_image($src, $alt = '', $width = '', $height = '', $parameters = '') {
-    $image = '<img src="' . tep_output_string($src) . '" border="0" alt="' . tep_output_string($alt) . '"';
+    $image = '<img src="' . tep_output_string($src) . '" alt="' . tep_output_string($alt) . '"';
 
     if (tep_not_null($alt)) {
       $image .= ' title="' . tep_output_string($alt) . '"';
@@ -379,7 +379,7 @@
     $button = NULL;
 
     if ( ($params['type'] == 'button') && isset($link) ) {
-      $button .= '<a id="btn' . $button_counter . '" href="' . $link . '"';
+      $button .= '<a  href="' . $link . '"';
 
       if ( isset($params['newwindow']) ) {
         $button .= ' target="_blank"';
@@ -395,7 +395,7 @@
 
     $button .= ' class="btn ';
 
-    $button .= (isset($style)) ? $style : 'btn-default';
+    $button .= (isset($style)) ? $style : 'btn-outline-secondary';
 
     $button .= '">';
 

@@ -52,7 +52,7 @@
 <?php	
 	if (empty($action)) {
 ?>
-	<div class="pull-right"><?php echo tep_draw_button(IMAGE_NEW_ZONE, 'plus', tep_href_link('zones.php', 'page=' . $_GET['page'] . '&action=new')); ?></div>
+	<div class="float-right"><?php echo tep_draw_button(IMAGE_NEW_ZONE, 'plus', tep_href_link('zones.php', 'page=' . $_GET['page'] . '&action=new')); ?></div>
 <?php
 	}
 ?>	
@@ -95,7 +95,7 @@
 ?>
 		</table>
 		<nav>
-			<ul class="pagination pull-left"><?php echo $zones_split->display_count($zones_query_numrows, MAX_DISPLAY_SEARCH_RESULTS, $_GET['page'], TEXT_DISPLAY_NUMBER_OF_ZONES); ?></ul>
+			<ul class="pagination float-left"><?php echo $zones_split->display_count($zones_query_numrows, MAX_DISPLAY_SEARCH_RESULTS, $_GET['page'], TEXT_DISPLAY_NUMBER_OF_ZONES); ?></ul>
             <?php echo $zones_split->display_links($zones_query_numrows, MAX_DISPLAY_SEARCH_RESULTS, MAX_DISPLAY_PAGE_LINKS, $_GET['page']); ?>
 		</nav>
 	</div>
