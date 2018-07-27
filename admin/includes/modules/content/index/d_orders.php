@@ -27,7 +27,7 @@
       }
     }
 
-    function getOutput() {
+    function execute() {
       global $languages_id;
 
       $output = '<table class="table table-bordered table-striped table-hover">' .

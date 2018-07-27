@@ -11,13 +11,16 @@
 */
 
   class d_admin_logins {
-    var $code = 'd_admin_logins';
+    var $code;
+    var $group;
     var $title;
     var $description;
     var $sort_order;
     var $enabled = false;
 
     function __construct() {
+      $this->code = get_class($this);
+      $this->group = basename(dirname(__FILE__));        
       $this->title = MODULE_ADMIN_DASHBOARD_ADMIN_LOGINS_TITLE;
       $this->description = MODULE_ADMIN_DASHBOARD_ADMIN_LOGINS_DESCRIPTION;
 
@@ -27,7 +30,8 @@
       }
     }
 
-    function getOutput() {
+    function execute() {
+        global $oscTemplate;
       $output = '<table class="table table-bordered table-striped table-hover">' .
                 '   <thead>' .
                 '       <tr class="dataTableHeadingRow">' .
@@ -47,8 +51,7 @@
       }
 
       $output .= '</table>';
-
-      return $output;
+      $oscTemplate->addContent($output, $this->group);
     }
 
     function isEnabled() {

@@ -27,7 +27,7 @@
       }
     }
 
-    function getOutput() {
+    function execute() {
       $cache_file = DIR_FS_CACHE . 'oscommerce_version_check.cache';
       $current_version = tep_get_version();
       $new_version = false;

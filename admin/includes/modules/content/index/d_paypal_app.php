@@ -35,7 +35,7 @@
       }
     }
 
-    function getOutput() {
+    function execute() {
       $version = $this->_app->getVersion();
       $version_check_result = defined('OSCOM_APP_PAYPAL_VERSION_CHECK') ? '"' . OSCOM_APP_PAYPAL_VERSION_CHECK . '"' : 'undefined';
       $can_apply_online_updates = class_exists('ZipArchive') && function_exists('json_encode') && function_exists('openssl_verify') ? 'true' : 'false';

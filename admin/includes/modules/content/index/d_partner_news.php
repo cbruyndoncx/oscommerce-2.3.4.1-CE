@@ -33,7 +33,7 @@
       }
     }
 
-    function getOutput() {
+    function execute() {
       $result = $this->_getContent();
 
       $output = null;

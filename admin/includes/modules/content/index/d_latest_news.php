@@ -27,7 +27,7 @@
       }
     }
 
-    function getOutput() {
+    function execute() {
       if (!class_exists('lastRSS')) {
         include('includes/classes/rss.php');
       }

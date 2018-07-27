@@ -27,7 +27,7 @@
       }
     }
 
-    function getOutput() {
+    function execute() {
       global $PHP_SELF;
 
       $output = '';
