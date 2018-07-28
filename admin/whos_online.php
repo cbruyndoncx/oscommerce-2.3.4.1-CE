@@ -66,7 +66,7 @@
   }
 ?>
 		</table>
-		<span class="help-block"><?php echo sprintf(TEXT_NUMBER_OF_CUSTOMERS, tep_db_num_rows($whos_online_query)); ?></span>
+		<span class="text-muted"><?php echo sprintf(TEXT_NUMBER_OF_CUSTOMERS, tep_db_num_rows($whos_online_query)); ?></span>
 	</div>
 <?php
   $heading = array();

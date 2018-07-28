@@ -75,7 +75,7 @@
 ?>
 
 		</table>
-		<span class="help-block"><?php echo TEXT_HOOKS_DIRECTORY . ' ' . DIR_FS_CATALOG . 'includes/hooks/'; ?></span>
+		<span class="text-muted"><?php echo TEXT_HOOKS_DIRECTORY . ' ' . DIR_FS_CATALOG . 'includes/hooks/'; ?></span>
 	</div>
 <?php
   echo '</div>';//row end

@@ -85,7 +85,7 @@
   }
 ?>
 		</table>
-		<span id="helpBlock" class="help-block"><?php echo TEXT_CACHE_DIRECTORY . ' ' . DIR_FS_CACHE; ?></span>
+		<span id="helpBlock" class="text-muted"><?php echo TEXT_CACHE_DIRECTORY . ' ' . DIR_FS_CACHE; ?></span>
 	</div>	
 <?php
   

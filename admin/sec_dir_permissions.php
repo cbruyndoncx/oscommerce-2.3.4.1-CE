@@ -89,7 +89,7 @@
 ?>
 
 		</table>
-		<span class="help-block"><?php echo TEXT_DIRECTORY . ' ' . DIR_FS_CATALOG; ?></span>
+		<span class="text-muted"><?php echo TEXT_DIRECTORY . ' ' . DIR_FS_CATALOG; ?></span>
 	</div>
 <?php
 

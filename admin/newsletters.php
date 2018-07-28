@@ -259,7 +259,7 @@
   $module->send($nInfo->newsletters_id);
 ?>
         </table>
-		<span class="help-block"><font color="#ff0000"><strong><?php echo TEXT_FINISHED_SENDING_EMAILS; ?></strong></font></span>
+		<span class="text-muted"><font color="#ff0000"><strong><?php echo TEXT_FINISHED_SENDING_EMAILS; ?></strong></font></span>
 		<nav>
 			<ul class="pagination float-right"><?php echo tep_draw_button(IMAGE_BACK, 'triangle-1-w', tep_href_link('newsletters.php', 'page=' . $_GET['page'] . '&nID=' . $_GET['nID'])); ?></ul>
 		</nav>		

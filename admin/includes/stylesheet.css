@@ -17,6 +17,11 @@ body{
 /*
  * Content
  */
+.page-header {
+  padding-bottom: 9px;
+  margin: 40px 0 20px;
+  border-bottom: 1px solid #eee;
+}
 
 [role="main"] {
   padding-top: 90px; /* Space for fixed navbar */

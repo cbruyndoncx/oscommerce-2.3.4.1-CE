@@ -223,7 +223,7 @@
 ?>
 
 		</table>
-		<span class="help-block"><?php echo TEXT_MODULE_DIRECTORY . ' ' . $module_directory; ?></span>
+		<span class="text-muted"><?php echo TEXT_MODULE_DIRECTORY . ' ' . $module_directory; ?></span>
 	</div>
 <?php
   $heading = array();

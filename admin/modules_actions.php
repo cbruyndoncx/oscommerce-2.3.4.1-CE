@@ -60,7 +60,7 @@
 ?>
 
 		</table>
-		<span class="help-block"><?php echo TEXT_ACTIONS_DIRECTORY . ' ' . DIR_FS_CATALOG . 'includes/actions/'; ?></span>
+		<span class="text-muted"><?php echo TEXT_ACTIONS_DIRECTORY . ' ' . DIR_FS_CATALOG . 'includes/actions/'; ?></span>
 	</div>
 
 <?php

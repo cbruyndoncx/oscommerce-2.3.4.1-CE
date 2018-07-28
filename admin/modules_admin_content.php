@@ -271,7 +271,7 @@
   }
 ?>
 		</table>
-		<span class="help-block"><?php echo TEXT_MODULE_DIRECTORY . ' ' . DIR_FS_ADMIN . '/includes/modules/content/'; ?></span>
+		<span class="text-muted"><?php echo TEXT_MODULE_DIRECTORY . ' ' . DIR_FS_ADMIN . '/includes/modules/content/'; ?></span>
 	</div>
 <?php
   $heading = array();

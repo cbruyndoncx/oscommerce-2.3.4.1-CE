@@ -271,7 +271,7 @@
   }
 ?>
 		</table>
-		<span class="help-block"><?php echo TEXT_MODULE_DIRECTORY . ' ' . DIR_FS_CATALOG_MODULES . 'content/'; ?></span>
+		<span class="text-muted"><?php echo TEXT_MODULE_DIRECTORY . ' ' . DIR_FS_CATALOG_MODULES . 'content/'; ?></span>
 	</div>
 <?php
   $heading = array();
