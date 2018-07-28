@@ -5,7 +5,7 @@
   osCommerce, Open Source E-Commerce Solutions
   http://www.oscommerce.com
 
-  Copyright (c) 2014 osCommerce
+  Copyright (c) 2018 osCommerce
 
   Released under the GNU General Public License
 */
@@ -15,19 +15,23 @@
   }
 
   class d_paypal_app {
-    var $code = 'd_paypal_app';
+    var $code;
+    var $group;
     var $title;
     var $description;
     var $sort_order;
     var $enabled = false;
 
     function __construct() {
+      $this->code = get_class($this);
+      $this->group = basename(dirname(__FILE__));
       $this->_app = new OSCOM_PayPal();
       $this->_app->loadLanguageFile('admin/balance.php');
       $this->_app->loadLanguageFile('admin/modules/dashboard/d_paypal_app.php');
 
       $this->title = $this->_app->getDef('module_admin_dashboard_title');
       $this->description = $this->_app->getDef('module_admin_dashboard_description');
+      $this->description .= '<div class="alert alert-info">' . MODULE_CONTENT_BOOTSTRAP_ROW_DESCRIPTION . '</div>';
 
       if ( defined('MODULE_ADMIN_DASHBOARD_PAYPAL_APP_SORT_ORDER') ) {
         $this->sort_order = MODULE_ADMIN_DASHBOARD_PAYPAL_APP_SORT_ORDER;
@@ -36,6 +40,12 @@
     }
 
     function execute() {
+      global $oscTemplate;
+      
+      $content_width = MODULE_ADMIN_DASHBOARD_PAYPAL_APP_CONTENT_WIDTH;
+      $output = '';
+      $output .= '<div class="col-sm-' . $content_width .' ' . strtr($this->code,'_','-') . '">';
+       
       $version = $this->_app->getVersion();
       $version_check_result = defined('OSCOM_APP_PAYPAL_VERSION_CHECK') ? '"' . OSCOM_APP_PAYPAL_VERSION_CHECK . '"' : 'undefined';
       $can_apply_online_updates = class_exists('ZipArchive') && function_exists('json_encode') && function_exists('openssl_verify') ? 'true' : 'false';
@@ -50,7 +60,7 @@
       $error_balance_retrieval = addslashes($this->_app->getDef('error_balance_retrieval'));
       $get_balance_url = tep_href_link('paypal.php', 'action=balance&subaction=retrieve&type=PPTYPE');
 
-      $output = <<<EOD
+      $output .= <<<EOD
 <style>
 .pp-container {
   font-size: 12px;
@@ -310,8 +320,9 @@ $(function() {
 </script>
 
 EOD;
+      $output .= '</div>';
 
-      return $output;
+      $oscTemplate->addContent($output, $this->group);
     }
 
     function isEnabled() {
@@ -323,7 +334,8 @@ EOD;
     }
 
     function install() {
-      tep_db_query("insert into configuration (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, date_added) values ('Sort Order', 'MODULE_ADMIN_DASHBOARD_PAYPAL_APP_SORT_ORDER', '0', 'Sort order of display. Lowest is displayed first.', '6', '0', now())");
+      tep_db_query("insert into " . TABLE_CONFIGURATION . " (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, date_added) values ('Sort Order', 'MODULE_ADMIN_DASHBOARD_PAYPAL_APP_SORT_ORDER', '0', 'Sort order of display. Lowest is displayed first.', '6', '0', now())");
+      tep_db_query("insert into " . TABLE_CONFIGURATION . " (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, set_function, date_added) values ('Content Width', 'MODULE_ADMIN_DASHBOARD_PAYPAL_APP_CONTENT_WIDTH', '12', 'What width container should the content be shown in? (12 = full width, 6 = half width).', '6', '2', 'tep_cfg_select_option(array(\'12\', \'11\', \'10\', \'9\', \'8\', \'7\', \'6\', \'5\', \'4\', \'3\', \'2\', \'1\'), ', now())");
     }
 
     function remove() {
@@ -331,7 +343,7 @@ EOD;
     }
 
     function keys() {
-      return array('MODULE_ADMIN_DASHBOARD_PAYPAL_APP_SORT_ORDER');
+      return array('MODULE_ADMIN_DASHBOARD_PAYPAL_APP_SORT_ORDER', 'MODULE_ADMIN_DASHBOARD_PAYPAL_APP_CONTENT_WIDTH');
     }
   }
 ?>

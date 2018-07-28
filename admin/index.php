@@ -25,34 +25,22 @@
 
   require('includes/template_top.php');
 ?>
-
-    <table border="0" width="100%" cellspacing="0" cellpadding="2">
-      <tr>
-        <td><table border="0" width="100%" cellspacing="0" cellpadding="2" height="40">
-          <tr>
-            <td class="pageHeading"><?php echo STORE_NAME; ?></td>
-
-<?php
+<div class="page-header">
+<?php	
   if (sizeof($languages_array) > 1) {
 ?>
-
-            <td class="pageHeading" align="right"><?php echo tep_draw_form('adminlanguage', 'index.php', '', 'get') . tep_draw_pull_down_menu('language', $languages_array, $languages_selected, 'onchange="this.form.submit();"') . tep_hide_session_id() . '</form>'; ?></td>
+	<div class="float-right"><?php echo tep_draw_form('adminlanguage', 'index.php', '', 'get') . tep_draw_pull_down_menu('language', $languages_array, $languages_selected, 'onchange="this.form.submit();"') . tep_hide_session_id() . '</form>'; ?></div>
+<?php
+	}
+?>	
+    <h1><?php echo STORE_NAME; ?></h1>
+</div>
+<div class="row">
 
 <?php
-  }
+    echo $oscTemplate->getContent('dashboard');
 ?>
-
-          </tr>
-        </table></td>
-      </tr>
-      <tr>
-        <td><table border="0" width="100%" cellspacing="0" cellpadding="2">
-<?php
-        echo $oscTemplate->getContent('index');
-?>
-        </table></td>
-      </tr>
-    </table>
+</div>
 
 <?php
   require('includes/template_bottom.php');
