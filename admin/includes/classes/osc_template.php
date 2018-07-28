@@ -15,7 +15,7 @@
     var $_blocks = array();
     var $_content = array();
     var $_grid_container_width = 12;
-    var $_grid_content_width = ADMIN_BOOTSTRAP_CONTENT;
+    var $_grid_content_width = BOOTSTRAP_ADMIN_CONTENT;
     var $_grid_column_width = 0; // deprecated
     var $_data = array();
 
@@ -72,11 +72,11 @@
     function buildBlocks() {
       global $language;
 
-      if ( defined('ADMIN_BLOCK_GROUPS') && tep_not_null(ADMIN_BLOCK_GROUPS) ) {
-        $tbgroups_array = explode(';', ADMIN_BLOCK_GROUPS);
+      if ( defined('TEMPLATE_ADMIN_BLOCK_GROUPS') && tep_not_null(TEMPLATE_ADMIN_BLOCK_GROUPS) ) {
+        $tbgroups_array = explode(';', TEMPLATE_ADMIN_BLOCK_GROUPS);
 
         foreach ($tbgroups_array as $group) {
-          $module_key = 'ADMIN_' . strtoupper($group) . '_INSTALLED';
+          $module_key = 'MODULES_ADMIN_' . strtoupper($group) . '_INSTALLED';
 
           if ( defined($module_key) && tep_not_null(constant($module_key)) ) {
             $modules_array = explode(';', constant($module_key));

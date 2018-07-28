@@ -229,7 +229,10 @@
   } else {
     $current_category_id = 0;
   }
-
+// initialize admin configuration modules
+  require('includes/classes/cfg_admin_modules.php');
+  $cfgAdminModules = new cfg_admin_modules();
+  
 // initialize configuration modules
   require('includes/classes/cfg_modules.php');
   $cfgModules = new cfg_modules();
