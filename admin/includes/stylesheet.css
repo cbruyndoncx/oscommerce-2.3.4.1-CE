@@ -82,6 +82,22 @@ body{
   text-transform: uppercase;
 }
 
+.sidebar-heading > a[aria-expanded="true"]:before {
+  float: right; 
+  content: "\f056";
+  font-family: 'Font Awesome\ 5 Free';
+  font-size: 2em;
+  font-weight: 900; 
+}
+
+.sidebar-heading > a[aria-expanded="false"]:before {
+  float: right; 
+  content: "\f055"; 
+  font-family: 'Font Awesome\ 5 Free';
+  font-size: 2em;
+  font-weight: 900; 
+}
+
 /* page navigation */
 .pagination select {
     display:inline-block;
