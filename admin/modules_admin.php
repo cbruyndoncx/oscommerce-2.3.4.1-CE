@@ -63,11 +63,12 @@
             $module->install();
 
             $modules_installed = explode(';', constant($module_key));
-
+            
             if (!in_array($class . $file_extension, $modules_installed)) {
               $modules_installed[] = $class . $file_extension;
             }
-
+            $modules_installed = array_values(array_filter($modules_installed));
+            
             tep_db_query("update " . TABLE_CONFIGURATION . " set configuration_value = '" . implode(';', $modules_installed) . "' where configuration_key = '" . $module_key . "'");
             tep_redirect(tep_href_link('modules_admin.php', 'set=' . $set . '&module=' . $class));
           } elseif ($action == 'remove') {
