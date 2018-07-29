@@ -92,17 +92,19 @@
 	} else {
 		adminCollapseAppMenuArray = JSON.parse(adminCollapseAppMenu);
 		var arrayLength = adminCollapseAppMenuArray.length;
-			for (var i = 0; i < arrayLength; i++) {
-				var panel = '#'+adminCollapseAppMenuArray[i];
-				$(panel).addClass('show');
-                $('#collapseListGroupHeading'+i+' a').attr('aria-expanded', 'true');
-			}
+        for (var i = 0; i < arrayLength; i++) {
+            var panel = '#'+adminCollapseAppMenuArray[i];
+            $(panel).addClass('show');
+            $(panel).prev().find('a').attr('aria-expanded', 'true');
+        }
 	}
 	$('#adminAppMenu').on('shown.bs.collapse', '.card-collapse', function() {
 		adminCollapseAppMenu = JSON.parse(localStorage.getItem('adminCollapseAppMenu'));
 		if ($.inArray($(this).attr('id'), adminCollapseAppMenu) == -1) {
 			adminCollapseAppMenu.push($(this).attr('id'));
 		};
+        $collapse = $(this).prev().find('a').attr('data-target');
+        $($collapse).attr('aria-expanded', 'true');
 		localStorage.setItem('adminCollapseAppMenu', JSON.stringify(adminCollapseAppMenu));
 	});
 	$('#adminAppMenu').on('hidden.bs.collapse', '.card-collapse', function() {
@@ -114,7 +116,7 @@
 		//Close panels if navigate to index
 		adminCollapseAppMenu = [];
 		localStorage.setItem('adminCollapseAppMenu', JSON.stringify(adminCollapseAppMenu));
+        $('#adminAppMenu .sidebar-heading a').attr('aria-expanded', 'false');
 		$('#adminAppMenu .card-collapse').removeClass('show');
-        $('#adminAppMenu a').attr('aria-expanded', 'false');
 	}	
 </script>
