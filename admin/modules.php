@@ -121,7 +121,7 @@
 <div class="row">
 	<div class="col-md-8">
 
-		<table class="table table-bordered table-striped table-hover">
+		<table class="table table-bordered table-striped table-hover <?php echo strtr(pathinfo($PHP_SELF, PATHINFO_FILENAME),'_','-'); ?>">
 			<thead>
 				<tr class="dataTableHeadingRow">
 					<th class="dataTableHeadingContent"><?php echo TABLE_HEADING_MODULES; ?></th>

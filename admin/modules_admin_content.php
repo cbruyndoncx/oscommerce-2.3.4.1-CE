@@ -175,7 +175,7 @@
 <div class="row">
 	<div class="col-md-8">
 
-		<table class="table table-bordered table-striped table-hover">
+		<table class="table table-bordered table-striped table-hover <?php echo strtr(pathinfo($PHP_SELF, PATHINFO_FILENAME),'_','-'); ?>">
 <?php
   if ( $action == 'list_new' ) {
 ?>
@@ -201,9 +201,9 @@
       }
 
       if (isset($mInfo) && is_object($mInfo) && ($module->code == $mInfo->code) ) {
-        echo '<tr id="defaultSelected" class="table-primary" onmouseover="rowOverEffect(this)" onmouseout="rowOutEffect(this)">' . "\n";
+        echo '<tr id="defaultSelected" class="table-primary sortable" onmouseover="rowOverEffect(this)" onmouseout="rowOutEffect(this)">' . "\n";
       } else {
-        echo '<tr class="dataTableRow" onclick="document.location.href=\'' . tep_href_link('modules_admin_content.php', 'action=list_new&module=' . $module->code) . '\'">' . "\n";
+        echo '<tr class="dataTableRow sortable" onclick="document.location.href=\'' . tep_href_link('modules_admin_content.php', 'action=list_new&module=' . $module->code) . '\'">' . "\n";
       }
 ?>
                 <td class="dataTableContent"><?php echo $module->title; ?></td>
