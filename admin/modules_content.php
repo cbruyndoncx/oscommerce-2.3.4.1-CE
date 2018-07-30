@@ -164,7 +164,7 @@
 ?>
 <div class="page-header">
 <?php
-  if (isset($_GET['list'])) {
+if ($action == 'list_new') {
     echo '<div class="float-right">' . tep_draw_button(IMAGE_BACK, 'triangle-1-w', tep_href_link('modules_content.php')) . '</div>';
   } else {
     echo '<div class="float-right">' . tep_draw_button(IMAGE_MODULE_INSTALL . ' (' . count($modules['new']) . ')', 'plus', tep_href_link('modules_content.php', 'action=list_new')) . '</div>';
