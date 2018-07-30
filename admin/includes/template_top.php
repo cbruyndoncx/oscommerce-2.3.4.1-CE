@@ -40,6 +40,9 @@
 <!-- <script src="<?php echo tep_catalog_href_link('ext/bootstrap/js/bootstrap.min.js', '', 'SSL'); ?>"></script> -->
 <script src="<?php echo tep_catalog_href_link('ext/datepicker/js/bootstrap-datepicker.js', '', 'SSL'); ?>"></script>
 <script type="text/javascript" src="includes/general.js"></script>
+
+<?php echo $oscTemplate->getBlocks('header_tags'); ?>
+
 </head>
 <body>
     <?php require('includes/header.php'); ?>

@@ -16,7 +16,7 @@
     var $language_directory = DIR_FS_ADMIN . 'includes/languages/';
     var $key = 'MODULE_ADMIN_HEADER_TAGS_INSTALLED';
     var $title;
-    var $template_integration = true;
+    var $template_integration = false;
 
     function __construct() {
       $this->directory =  DIR_FS_ADMIN . 'includes/modules/header_tags/';
