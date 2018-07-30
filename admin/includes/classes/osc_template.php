@@ -76,7 +76,7 @@
         $tbgroups_array = explode(';', TEMPLATE_ADMIN_BLOCK_GROUPS);
 
         foreach ($tbgroups_array as $group) {
-          $module_key = 'MODULES_ADMIN_' . strtoupper($group) . '_INSTALLED';
+          $module_key = 'MODULE_ADMIN_' . strtoupper($group) . '_INSTALLED';
 
           if ( defined($module_key) && tep_not_null(constant($module_key)) ) {
             $modules_array = explode(';', constant($module_key));
