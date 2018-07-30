@@ -11,7 +11,7 @@
 */
 
   class nba_account {
-    var $code = 'nba_account';
+    var $code;
     var $group = 'navbar_modules_right';
     var $title;
     var $description;
@@ -19,6 +19,7 @@
     var $enabled = false;    
     
     function __construct() {
+      $this->code = get_class($this);
       $this->title = MODULE_ADMIN_NAVBAR_ACCOUNT_TITLE;
       $this->description = MODULE_ADMIN_NAVBAR_ACCOUNT_DESCRIPTION;
 
