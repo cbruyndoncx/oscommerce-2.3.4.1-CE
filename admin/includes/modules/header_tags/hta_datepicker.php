@@ -43,10 +43,10 @@
         }
 
         if (in_array(basename($PHP_SELF), $pages_array)) {
-          $oscTemplate->addBlock(tep_catalog_href_link('ext/datepicker/js/bootstrap-datepicker.js'), $this->group);
-          $oscTemplate->addBlock(tep_catalog_href_link('ext/datepicker/css/datepicker.css') . "\n", 'header_tags');
+          $oscTemplate->addBlock('<script type="text/javascript" src="' . tep_catalog_href_link('ext/datepicker/js/bootstrap-datepicker.js') . '"></script>', $this->group);
+          $oscTemplate->addBlock('<link rel="stylesheet" type="text/css" href="' . tep_catalog_href_link('ext/datepicker/css/datepicker.css') . '">', 'header_tags');
           // customers         
-          $oscTemplate->addBlock('<script>$(\'#dob\').datepicker({dateFormat: \'' . JQUERY_DATEPICKER_FORMAT . '\',viewMode: 2});</script>', $this->group);
+          $oscTemplate->addBlock('<script>$(\'#customers_dob\').datepicker({dateFormat: \'' . JQUERY_DATEPICKER_FORMAT . '\',viewMode: 2});</script>', $this->group);
           
           
         }
